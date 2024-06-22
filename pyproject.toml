@@ -1,0 +1,46 @@
+[project]
+name = "health-ai"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Luke Van Seters", email = "lukevanseters@gmail.com"},
+]
+dependencies = [
+    "typer>=0.12.3",
+    "pydantic>=2.7.4",
+    "openai>=1.35.3",
+    "pydantic-settings>=2.3.3",
+    "instructor>=1.3.3",
+    "pyaudio>=0.2.14",
+    "numpy>=2.0.0",
+    "elevenlabs>=1.3.1",
+    "pydub>=0.25.1",
+    "pandas>=2.2.2",
+    "pandasql>=0.7.3",
+    "tabulate>=0.9.0",
+]
+requires-python = "==3.12.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+cli = "python src/cli.py"
+
+[[tool.mypy.overrides]]
+module = [
+    "pydub.*",
+]
+ignore_missing_imports = true
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "mypy>=1.10.0",
+    "ruff>=0.4.10",
+    "pre-commit>=3.7.1",
+    "types-pyaudio>=0.2.16.20240516",
+    "pandas-stubs>=2.2.2.240603",
+]
